@@ -1,0 +1,83 @@
+->To pass the data to the respective VIEW , we have to do that by using the "with" keyword
+  in the respective Controller.
+
+->(Passing data to view basic)
+  eg.(Passing data to view basic)
+
+  <?php
+
+  namespace App\Http\Controllers;
+
+  class PagesController extends Controller{
+    public function getIndex(){
+    $ firstName="Abhijit";
+    $ lastName="Hycinth";
+    $ full=$firstName . " " . $lastName
+      return view('pages/welcome') ->with("fullname",$full);
+    }
+
+    .....
+
+Notes: here "fullname" is the parameter (i.e formal parameter)and "$full" is the argument(i.e actual parameter)
+
+->now in the view we access the same data by enclosing it within the double curly brackets "{{ fullname }}"
+
+------------------------------------------
+(Passing MULTIPLE data to view basic)
+-------------------------------------------
+<?php
+
+namespace App\Http\Controllers;
+
+class PagesController extends Controller{
+  public function getIndex(){
+  $ firstName= "Abhijit";
+  $ lastName= "Hycinth";
+  $ full= $firstName . " " . $lastName
+  $ email= "abhijeethycinth@gmail.com"
+    return view('pages/welcome') ->with("fullname",$full) ->with("email", $email);
+  }
+
+  .....
+
+--------------------------------------
+(Passing data to view intermediate)
+--------------------------------------
+<?php
+
+namespace App\Http\Controllers;
+
+class PagesController extends Controller{
+  public function getIndex(){
+  $ firstName= "Abhijit";
+  $ lastName= "Hycinth";
+  $ full= $firstName . " " . $lastName
+  $ email= "abhijeethycinth@gmail.com"
+    return view('pages/welcome') ->withFullname($full);
+  }
+
+  .....
+
+
+IMPORTANT:
+    NOTE: Here in "withParametername", the <parameter_name> should start with Capital letter, however,
+          in the view it is accessed using small letters. i.e {{ parametername }}
+
+
+=====================================
+Passing an array of data to view
+=====================================
+
+public function getContact(){
+  $firstName = 'Abhijit';
+  $lastName= "Hycinth";
+  $full= $firstName . " " .$lastName;
+  $email="abhijeethycinth@gmail.com";
+  $phoneNumber="7767985877";
+
+  $data=array("fullName" => $full,
+               "email" => $email,
+               "phoneNumber" =>$phoneNumber
+              );
+  return view('pages/contact')->withData($data);
+}

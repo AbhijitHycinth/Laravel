@@ -1,0 +1,46 @@
+=================
+  MIGRATIONS
+=================
+MIGRATIONS are seen under database/migrations
+
+By default: Every Migration uses the :  Migration and Blueprint service providers.
+
+  i.e use Illuminate\Database\Schema\Blueprint;
+      use Illuminta\Database\Migratins\Migration;
+
+      the "CreatePostsTable"class extends Migrations for its properties
+
+The "CreatePostsTable" class has two functions: ->up()
+                                                      ->It is used to create the table in Database with the columns
+                                                      By default it takes (id) and date_created and date_updated columns.
+                                                      timestamp() creates the date_created and date_updated columns and laravel maintains it.
+
+                                                      NOTE: datetimestamp store both date and time hence the column type will "datetime" for date_created and date_updated;
+                                                            for only "date" type, we can use, datestamp
+                                                            for only "time" type, we can use , timestamp
+
+                                                            Types of columns: int
+                                                                              string (upto 255 chars)
+                                                                              text (for more than 255 chars)
+
+                                                                              NOTE: text can store only plain texts and not rich texts like bold characters and everything.
+                                                                                    hence we use, html tags to define the format
+
+                                                  eg:public function up()
+                                                  {
+                                                  Schema :: create('<tablename>'Blueprint $table)   //here $table is a model
+                                                                  {
+                                                                  $table->increment('id');
+                                                                  $table->string('title')->nullable();    //here nullable is a column modifier.
+                                                                  $table->timestamps();
+                                                                  }
+                                                  }
+                                                ->down()
+                                                        ->The down() function is used to drop the table.
+
+
+For more references on column types and column modifiers : https://laravel.com/docs/5.5/migrations
+==================
+DATABASE SETUP
+==================
+We set up database in .env file.

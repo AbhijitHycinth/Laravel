@@ -1,0 +1,52 @@
+IMPORTANCE OF CONTROLLER
+---------------------------
+->Every ROUTE should not directly go to the VIEW.
+  ->Instead it should be directed by the ROUTES to the respective CONTROLLER and then to the VIEWS.
+    -> When using the CONTROLLER to route to the VIEW we can organise the respective VIEWS in their respective folders
+      and access them using [folder_name.view_name] or [folder_name/view_name]
+      -> The "/" or "." can be used according to convinience.
+  ->Hence, we place the logic of the ROUTES in the CONTROLLER.
+
+->SENDING REQUEST FROM ROUTES TO THE VIEWS:
+  eg:Route::get('/about', 'PageController@getIndex');
+  -> here PageController is the name of the CONTROLLER and the getIndex is the name of the function being called.
+
+->Secondly, there should not be any function in the ROUTES
+
+->We have to have every CONTROLLER in a NAMESPACE,
+  ->A NAMESPACE tells that you belong in the folder and you cannot go out of it
+    until you have explicit authority.
+
+    eg:namespace App\Http\Controllers;
+    NAMESPACE NAMING CONVENTION (STRICTLY FOLLOW)
+    ->NOTE: The NAMESPACE has every folder_name starting with capital letters and it has backslash("\")
+            unlike the normal slash ("/")
+
+  ->"use" keyword is used to give access to other folders other than the NAMESPACE to the CONTROLLER.
+
+->Normally, a normal "Controller.php" CONTROLLER is present, which is used as the base CONTROLLER usually.
+->Hence, we extend this CONTROLLER in our custom CONTROLLERS.
+
+->In the classes of the CONTROLLER we define ACTIONS i.e a "function".
+->SCOPE:If the ACTION has public SCOPE then it can be accessed from anywhere.
+      ->If it is private, then it can be accessed from only within the NAMESPACE.
+
+  ->FUNCTION NAMING CONVENTION(NOT STRICTLY FOLLOWED)
+    ->The ACTIONS (i.e. functions) name should start with the "Http" request like "get, post, delete,update etc"
+    ->HTTP_REQUESTS:
+      ->"get":It is used to retrieve information of a product in database or
+              It is used to redirect or "get" the static page.
+      ->"post":It is used ti create a new product in database
+              It is used to process the data of the page and do some actions based on it.
+              eg. Submitting a form and entering the data in the database and then redirecting a new page
+      ->"put": It is used to update an already existing product in database
+      ->"delete": It is used to delete a product in the database.
+    ->THINGS THAT ARE DONE IN CONTROLLER FUNCTIONS:
+      ->process variable data or parameters
+      ->talk to the MODEL
+      ->receive data from the MODEL
+      ->compile or process data from the MODEL if needed
+      ->send the data to the view
+
+      NOTE: We process the MODEL in CONTROLLER because in MVC, only CONTROLLER can speak to the MODEL
+            and then send it to the VIEW.

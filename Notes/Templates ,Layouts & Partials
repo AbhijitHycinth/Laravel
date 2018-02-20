@@ -1,0 +1,33 @@
+Usually we don't want our code to repeat itself. i.e DRY(Don't repeat yourself)
+->In views i.e html/css, this can be achieved using templates, layouts, partials.
+  ->Templates, layouts , partials is called blade.
+  ->Blade is a templating engine basically, where in you can incorporate php in between and keep the code clean.
+
+==========
+LAYOUTS
+==========
+It is basically used to make the repetitive part of the website easier to work with.
+It is that part of the website that gets used everywhere.
+Hence we create a file "main.blade.php" which has the same LAYOUT that gets repeated in every page.
+  ->i.e The navbar gets repeated with just a few small changes throughout.
+
+Then we use the "@yield('<label_name>')" to yield the data that gets changed.
+Here <label_name> is defined using "@section(<label_name)" in the source blade file.
+The content to be extracted is defined between '@section(<label_name>)' and '@endsection'.
+
+Now , in the welcom.blade.php file, we use @extends 'main' where "main" is main.blade.php which is the layout
+
+
+============
+  PARTIAL
+============
+
+Partials are mainly use to organise the files.
+NOTE: NAMING CONVENTION
+                        -> Partials name start with '_'(underscore)
+PARTIALS are included using the "@include('<path_to_partial>')".
+
+NOTE: IRRESPECTIVE of where the partials are, the "{{ }}" and "@yield"
+      i.e php syntax and blade syntax works
+
+When including PARTIALS , the code simply copies what is in the body of the partial file.

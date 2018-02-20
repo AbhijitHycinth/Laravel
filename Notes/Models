@@ -1,0 +1,25 @@
+Models are used to talk to the database.
+NAMING CONVENTION:
+                  -> Models are SINGULAR version with a first letter capital of the table in the database
+                    i.e suppose, table_name = posts  (plural)
+                                 model_name = Post  (SINGULAR with first CAPITAL)
+
+NOTE: php artisan <artisan command>
+      Means that "artisan" commands to be interpreted using php
+    ->Where <artisan command> can be "serve"
+
+We use the "php artisan make " command to make things like views, models, controllers quickly
+
+DON'T USE THIS->php artisan make:model Posts    //here Posts is the name of the model to be created.
+
+--------------
+  MIGRATIONS
+--------------
+Migrations are used to create and edit DATABASE Tables through laravel.
+It can be used to partners to take our tables.
+
+USE THIS-> php artisan make:model Post --migration
+           or
+           php artisan make:model Post -m
+
+          The above creates a model Post and migrations posts.
