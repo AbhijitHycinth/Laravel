@@ -4,7 +4,7 @@
 @section('content')
   <div class="row">
     <div class="col-md-12">
-      <h1>Reach Me from here!!</h1>
+      <center><h1>Get In Touch</h1></center>
 
       <hr>
 
