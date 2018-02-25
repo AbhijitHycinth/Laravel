@@ -1,0 +1,63 @@
+=======================
+    Sessions
+=======================
+Sessions are normal sessions like in java.
+However, something new in th concept of sessions is that , suppose you are filling a form.
+Then you would treat it as a sessionand set its configurations for timeout of session or session expired time.
+The Session cofiguration is done in "config/session.php".
+
+In the "config/session.php"
+    ->
+        'driver' => env('SESSION_DRIVER', 'file'),
+
+        //here file is one of the types of storing the sessions
+        //file can be changed to -> 'file' 'cookie' ' database'
+            ->'file': It is a hybrid of 'cookie' and 'database', it is stored in 'astorage/sessions/framework'
+            ->'cooke': cookie is used to store the information of the session using cookies
+            ->'database': Database is used to store the information of the session in the Database
+
+    ->
+      'lifetime' => env('SESSION_LIFETIME', 120),
+
+      //The above is used to set the session time in 'mins' . Here it is '120' mins.
+
+    ->
+      'expire_on_close' => false,
+      //This is used to set whether the session needs to be abandoned when the browser is closed or not.
+
+    ->    'encrypt' => false,
+        //This is used to encrypt the session value. Mostly used for cookies.
+
+After the configurations done, we move to the controller that sets the sessions.
+
+===============
+MIDDLEWARE
+==============
+
+'Middleware' is what sits between the path of 'Route' to 'Controller'
+Hence in the 'route.php' we pass all the controllers through the 'middleware'.
+
+
+=====================
+    MESSAGES
+=================
+
+Now messages have different types, among which are:
+    ->Flash Messages: These are the messages that are not stored on permanent basis and are temporary.
+                    ->Hence these messages dissappear when the page is reloaded.
+
+                    Syntax :
+                            Session::flash('key','value')
+                            //the key is the name by which the message is stored and accessed.
+                            //flash tells that it is a flash message.
+
+                            Session:: has('key')
+                            //it determines whether the session has the variable with the key value.
+
+                            Session:: get('key')
+                            //It displays the value of the 'key'
+
+    ->Messages: These are the messages that are stored on a permanent basis in the session.
+                Syntax:
+                        Session::puts('key','value')
+                        //Rest of the syntax is same.

@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\PostController;
 class PagesController extends Controller{
   public function getIndex(){
-    return view('pages/welcome');
+    $postController=new PostController();
+    $data=$postController->index();
+    return view('pages/welcome')->withData($data);
   }
 
   public function getContact(){

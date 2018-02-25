@@ -1,0 +1,85 @@
+To insert the data into database we would need a 'post' request in the controller.
+
+NOTE: A post request canbe identified if a (Reques $request) parameter is passed to the function in the controller.
+      In a resource controller, thename of the function is create.
+
+eg:
+public function store(Request $request)
+{
+  //validate the data
+  //Store in the database
+  //redirectto another page
+}
+
++========================
+        VALIDATE
+============================
+NOTE: Validation can be done in CONTROLLERS since laravel's validation is part of the Controller class.
+      Validation needs 2 parameters:
+                                      ->Request: the data to be validated .
+                                      ->array(): This is the array of rules.
+                                              ->The validation rules canbe found : https://laravel.com/docs/5.6/validation
+                                              ->it takes the NAME of the field we are validating
+
+                                    eg:
+                                    public function store(Request $request)
+                                    {
+                                    $this->validate($request,array(
+                                      'title'=>'required|max::255',
+                                      'body'=>'required'
+                                    ))
+                                    }
+
+                                    multiple validation rules can be inserted using '|' as de limiter.
+                                    in th above case you can see required|max::255 are multiple validation rules.
+
+
+NOTE: The above validations are server side validations.This means that the validation takes place only after the user has clicked the submit button,
+      and then the server validates it.Laravel includes CSRF (Cross Server Request Forging) protection, which prevents bots to hack.
+      However, it is much prettier to have javascript validations, but javascript validations are hackable. Hence alongwith javascript validations,
+      it is a must to have the server side validations as well.
+
+
+==============================
+        INSERTION
+==============================
+For inserting or interacting with the databse with the considered model, we use LARAVEL ELOQUENT.
+ELOQUENT is a way of interacting with the database without the requirement of the MySQl commands.
+
+No wo insert, wewill create an INSTANCE of the MODEL of the DATABASE in which the data needs to be isnerted.
+This is done as follows:
+                        $post = new Post;
+                        $post -> title = $request -> title;
+                        $post -> body= $request -> body;
+
+                        $post -> save(); // is used to save data in databse.
+                        // When save() command is used it , generates the 'id' and 'timestamps'
+We use the 'id' created to redirect to the new page.
+
+Remember to: use App\Post;
+            // This is to use themodel.
+
+            NOTE: namespae App\Controller;
+                  here namespace is equilvalent to packages in JAva;
+
+                  similarly 'use' : is equivalent to 'import' in java.
+
+==============================
+        REDIRECT
+==============================
+
+                      return redirect() -> route('posts.show', $post->id);
+
+                      NOTE: here 'posts.show' is the routeof the new page.
+                            Cannot pass post-> id before saving the model.
+
+posts.show($id) is used toredirect to the new page.
+
+
+
+
+===============================
+  JAVA SCRIPT FORM Validation
+===============================
+
+->We are going to use Parsley Javascript form validation.

@@ -16,37 +16,14 @@
 
     <div class="row">
       <div class="col-md-8">
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Post Description</p>
+      @foreach($data as  $value)
+          <div class="post">
+            <h3>{{$value->title}}</h3>
+            <p>{{$value->body}}</p>
             <a class="btn btn-primary">Read More</a>
         </div>
-
         <hr>
-
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Post Description</p>
-            <a class="btn btn-primary">Read More</a>
-        </div>
-
-        <hr>
-
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Post Description</p>
-            <a class="btn btn-primary">Read More</a>
-        </div>
-
-        <hr>
-
-        <div class="post">
-            <h3>Post Title</h3>
-            <p>Post Description</p>
-            <a class="btn btn-primary">Read More</a>
-        </div>
-
-        <hr>
+      @endforeach
 
       </div>
       <div class="col-md-3 col-md-offset-1">

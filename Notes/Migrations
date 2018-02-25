@@ -44,3 +44,5 @@ For more references on column types and column modifiers : https://laravel.com/d
 DATABASE SETUP
 ==================
 We set up database in .env file.
+
+The settings in the .env file are reflected under config/database.php  //This is where the actual configuration is done.

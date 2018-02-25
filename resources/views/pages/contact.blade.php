@@ -6,8 +6,6 @@
     <div class="col-md-12">
       <center><h1>Get In Touch</h1></center>
 
-      <hr>
-
       <form class="" action="index.html" method="post">
 
         <div class="form-group">
