@@ -22,7 +22,9 @@
           <label>Your Message</label>
           <textarea class="form-control" id="message" name="message" placeholder="Your Thoughts!!"></textarea>
         </div>
+
         <input type="submit" class="btn btn-success" name="submit" value="SUBMIT">
+
       </form>
     </div>
   </div>

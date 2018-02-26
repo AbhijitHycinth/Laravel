@@ -8,6 +8,7 @@
   <body>
 
   @include('partials._navbar')
+
   <div class="container">
     @include('partials._messages')
     @yield('content')

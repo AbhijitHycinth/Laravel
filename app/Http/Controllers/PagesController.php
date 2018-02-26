@@ -24,6 +24,7 @@ class PagesController extends Controller{
   }
 
   public function getAboutUs(){
+
     return view('pages/aboutus');
   }
 
