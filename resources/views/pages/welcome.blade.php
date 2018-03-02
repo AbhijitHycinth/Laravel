@@ -1,6 +1,7 @@
 
 @extends('main')
 @section('title','Homepage')
+@section('image',asset('img/home-bg.jpg'))
 @section('content')
     <div class="row">
       <div class="col-md-12">

@@ -1,5 +1,6 @@
 @extends('main')
 @section('title','| Create Posts')
+@section('image',asset('img/contact-bg.jpg'))
 
 @section('stylesheet')
 {!! Html::style('css/parsley.css') !!}

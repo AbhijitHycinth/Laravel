@@ -8,7 +8,7 @@
   <body>
 
   @include('partials._navbar')
-
+  @include('partials._backGroundImg')
   <div class="container">
     @include('partials._messages')
     @yield('content')
