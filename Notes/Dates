@@ -1,0 +1,18 @@
+Dates in MySQL are stored as a string. However, PHP works with dates as a UNIX
+Timestamp. This is an integer of the number of seconds that have passed since
+Jan 1, 1970 UTC. Before we can do anything with dates, we need to first convert
+our database time string into something that PHP will work with.
+
+To get a UNIX timestamp from a string you need to use strtotime() function from
+PHP. This converts it into an Integer unix timestamp.
+
+Then to get the timestamp into a user friendly view, we need to use the PHP
+Date() command. This command will accepts a string formula as its first argument
+and a unix timestamp as its second argument. You can create the formula you want
+by looking on the PHP Date() website. I have the link below.
+
+Next we work with Html::linkRoute() which allows us to give it a named route and
+it creates an html anchor tag (aka link). The first argument is the named route
+(string), the second is the value of the anchor tag, the third is an array
+(empty if no url params, or add the params in order), and the final argument is
+another array of all the options you want to use.
